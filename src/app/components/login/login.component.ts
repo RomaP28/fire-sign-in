@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+
+export interface Data {
+  email: string
+  password: string
+}
+
 
 @Component({
   selector: 'app-login',
@@ -10,10 +16,13 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
   })
+
+
   constructor(
     private authService: AuthenticationService,
     private router: Router,
@@ -21,22 +30,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  get email() {
-    return this.loginForm.get('email');
-  }
 
-  get password() {
-    return this.loginForm.get('password');
-  }
+  submit(data: Data) {
+    console.log('data that came out: ', data)
 
-  submit() {
-    if (!this.loginForm.valid) {
-      return
-    }
+    // if (!this.loginForm.valid) {
+    //   return
+    // }
 
-    const { email, password } = this.loginForm.value
-
-    this.authService.login(email || '', password || '').pipe(
+    this.authService.login(data.email, data.password).pipe(
       this.toast.observe({
         success: 'Logged on successfully',
         loading: 'Logging in...',
@@ -46,4 +48,5 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/home'])
     })
   }
+
 }

@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
@@ -22,6 +22,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 
 import { HotToastModule } from '@ngneat/hot-toast';
 import { MatMenuModule } from '@angular/material/menu';
+import { LoginChildComponent } from './components/login-child/login-child.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatMenuModule } from '@angular/material/menu';
     SignUpComponent,
     LoginComponent,
     LandingComponent,
-    HomeComponent
+    HomeComponent,
+    LoginChildComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import { MatMenuModule } from '@angular/material/menu';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     HotToastModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
