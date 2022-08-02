@@ -1,13 +1,13 @@
 <form #myForm="ngForm" novalidate>
   <div class="form-group">
     <mat-form-field>
-      <input matInput class="form-control" placeholder="Email" name="email" [(ngModel)]="email" />
+      <input matInput class="form-control" placeholder="Email" name="email" type="email" [(ngModel)]="user.email" />
     </mat-form-field>
   </div>
   <div class="form-group">
     <mat-form-field>
       <input matInput class="form-control" placeholder="Password" name="Password" type="password"
-        [(ngModel)]="password" />
+        [(ngModel)]="user.password" />
     </mat-form-field>
   </div>
   <div class="center margin-top">

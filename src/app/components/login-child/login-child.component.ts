@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Output } from '@angular/core';
-import { Data } from 'src/app/components/login/login.component'
-
+import { User } from 'src/app/components/login/login.component';
 
 @Component({
   selector: 'app-login-child',
@@ -10,19 +9,18 @@ import { Data } from 'src/app/components/login/login.component'
 })
 
 export class LoginChildComponent implements OnInit {
+  user: User = new User("", "");
 
-  email = "";
-  password = "";
-  @Output() onSubmit: EventEmitter<Data> = new EventEmitter<Data>();
+  @Output() onSubmit: EventEmitter<User> = new EventEmitter<User>();
 
   constructor() { }
 
   ngOnInit(): void { }
 
   submitData() {
-    const data: Data = {
-      email: this.email,
-      password: this.password
+    const data: User = {
+      email: this.user.email,
+      password: this.user.password
     }
     this.onSubmit.emit(data)
     console.log('data go out: ', data)

@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgModel, Validators } from '@angular/forms';
+// import { FormControl, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
-export interface Data {
-  email: string
-  password: string
-}
+// export interface Data {
+//   email: string
+//   password: string
+// }
 
+export class User {
+  constructor(public email: string,
+    public password: string) { }
+}
 
 @Component({
   selector: 'app-login',
@@ -31,7 +35,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(data: Data) {
+  submit(data: User) {
     console.log('data that came out: ', data)
 
     // if (!this.loginForm.valid) {
