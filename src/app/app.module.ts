@@ -26,7 +26,7 @@ import { LoginChildComponent } from './components/login-child/login-child.compon
 import { SignChildComponent } from './components/sign-child/sign-child.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyemailComponent } from './components/verifyemail/verifyemail.component';
-import { UserListComponent } from './components/user-list/user-list.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,6 @@ import { UserListComponent } from './components/user-list/user-list.component';
     SignChildComponent,
     ForgotPasswordComponent,
     VerifyemailComponent,
-    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +48,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
     ReactiveFormsModule,
     AppRoutingModule,
     MatMenuModule,

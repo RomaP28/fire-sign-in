@@ -1,0 +1,10 @@
+.userlist {
+  width: 40%;
+  min-width: 240px;
+  list-style: none;
+}
+
+.card {
+  background: #eceff1;
+  margin-top: 10px;
+}

@@ -1,16 +1,14 @@
 <h1 *ngIf="user$ | async as user">Welcome to our app, {{user.displayName}}!</h1>
-<!-- <h1 *ngIf="user$ | async as user">Welcome to our app!</h1> -->
 
-<ul  class="mat-elevation-z5">
+<ul class="userlist">
   <li *ngFor="let user of users">
-    <div>
-        {{user.name}}
-    </div>
-    <div>
-      {{user.lastname}}
-  </div>
-  <div>
-    {{user.email}}
-</div>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>{{user.name}} {{user.lastname}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          {{user.email}}
+        </mat-card-content>
+    </mat-card>
   </li>
 </ul>
