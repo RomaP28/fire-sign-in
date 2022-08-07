@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
-export class SignUp {
+export class User {
   constructor(
     public name: string,
     public lastName: string,
@@ -29,9 +29,8 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  submit(data: SignUp) {
-    const { email, name, password }: any = data;
-    this.authService.signUp(name, email, password).pipe(
+  submit(data: User) {
+    this.authService.signUp(data).pipe(
       this.toast.observe({
         success: 'Congrats! You sign up!',
         loading: 'Signin in',

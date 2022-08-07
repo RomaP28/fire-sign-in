@@ -19,6 +19,7 @@ import {
   setDoc,
   updateDoc,
 } from '@angular/fire/firestore';
+import { User } from '../components/sign-up/sign-up.component';
 
 @Injectable({
   providedIn: 'root'
@@ -32,14 +33,15 @@ export class AuthenticationService {
     return from(signInWithEmailAndPassword(this.auth, username, password))
   }
 
-  signUp(name: string, email: string, password: string) {
-    return from(createUserWithEmailAndPassword(this.auth, email, password)).pipe(
-      switchMap(({ user }) => updateProfile(user, { displayName: name }).then(()=>{
+  signUp(data: User) {
+    return from(createUserWithEmailAndPassword(this.auth, data.email, data.password)).pipe(
+      switchMap(({ user }) => updateProfile(user, { displayName: data.name }).then(()=>{
           const ref = doc(this.firestore, 'users', user.uid);
           return from(setDoc(ref, {
             uid: user.uid,
-            email: user.email,
-            name: user.displayName    
+            email: data.email,
+            name: data.name,
+            lastname: data.lastName
           }));
       }))
     )

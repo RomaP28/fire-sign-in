@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Output } from '@angular/core';
-import { SignUp } from 'src/app/components/sign-up/sign-up.component';
+import { User } from 'src/app/components/sign-up/sign-up.component';
 
 
 @Component({
@@ -11,16 +11,16 @@ import { SignUp } from 'src/app/components/sign-up/sign-up.component';
 
 export class SignChildComponent implements OnInit {
 
-  user: SignUp = new SignUp("", "", "", "");
+  user: User = new User("", "", "", "");
 
-  @Output() onSignUp: EventEmitter<SignUp> = new EventEmitter<SignUp>();
+  @Output() onSignUp: EventEmitter<User> = new EventEmitter<User>();
 
   constructor() { }
 
   ngOnInit(): void { }
 
   submit() {
-    const data: SignUp = {
+    const data: User = {
       name: this.user.name,
       lastName: this.user.lastName,
       email: this.user.email,

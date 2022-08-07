@@ -26,6 +26,7 @@ import { LoginChildComponent } from './components/login-child/login-child.compon
 import { SignChildComponent } from './components/sign-child/sign-child.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyemailComponent } from './components/verifyemail/verifyemail.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { VerifyemailComponent } from './components/verifyemail/verifyemail.compo
     LoginChildComponent,
     SignChildComponent,
     ForgotPasswordComponent,
-    VerifyemailComponent
+    VerifyemailComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
