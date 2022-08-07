@@ -9,7 +9,7 @@ import {
   updateProfile 
 } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { from, switchMap } from 'rxjs';
+import { from, pipe, switchMap } from 'rxjs';
 import {
   collection,
   doc,
@@ -20,6 +20,7 @@ import {
   updateDoc,
 } from '@angular/fire/firestore';
 import { User } from '../components/sign-up/sign-up.component';
+import { HotToastModule, HotToastService } from '@ngneat/hot-toast';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,10 @@ export class AuthenticationService {
 
   currentUser$ = authState(this.auth);
 
-  constructor(private auth: Auth, private router: Router, private firestore: Firestore) { }
+  constructor(private auth: Auth,
+     private router: Router, 
+     private firestore: Firestore,
+     private toast: HotToastService) { }
   login(username: string, password: string) {
     return from(signInWithEmailAndPassword(this.auth, username, password))
   }
@@ -52,10 +56,14 @@ export class AuthenticationService {
   }
 
   forgotPassword(email: string){
-      sendPasswordResetEmail(this.auth, email).then(()=>{
-        this.router.navigate(['/login']);
-      });
-  }
+    sendPasswordResetEmail(this.auth, email).then((err)=> {
+      this.toast.success('Link sent successfully')
+      this.router.navigate(['/login'])
+    }).catch(()=>{
+      this.toast.error('There was an error')
+      this.router.navigate(['/forgot-password'])
+    })
+}
 
   async sendEmailForVerification (user: any) {
     sendEmailVerification(user).then(()=>{

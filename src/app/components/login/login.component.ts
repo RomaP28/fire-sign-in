@@ -17,13 +17,6 @@ export class Login {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  // loginForm = new FormGroup({
-  //   email: new FormControl('', [Validators.required, Validators.email]),
-  //   password: new FormControl('', Validators.required)
-  // })
-
-
   constructor(
     private authService: AuthenticationService,
     private router: Router,
@@ -33,12 +26,6 @@ export class LoginComponent implements OnInit {
   }
 
   submit(data: Login) {
-    console.log('data that came out: ', data)
-
-    // if (!this.loginForm.valid) {
-    //   return
-    // }
-
     this.authService.login(data.email, data.password).pipe(
       this.toast.observe({
         success: 'Logged on successfully',

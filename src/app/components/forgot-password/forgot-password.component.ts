@@ -19,7 +19,8 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   forgotPassword(){
-    this.auth.forgotPassword(this.email);
+    if (this.email.trim() === '') return
+    this.auth.forgotPassword(this.email)
     this.email = ''
     this.router.navigate(['/verify-email']);
   }

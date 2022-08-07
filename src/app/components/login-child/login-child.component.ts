@@ -23,6 +23,5 @@ export class LoginChildComponent implements OnInit {
       password: this.user.password
     }
     this.onSubmit.emit(data)
-    console.log('data go out: ', data)
   }
 }

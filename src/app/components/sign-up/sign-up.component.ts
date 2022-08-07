@@ -40,22 +40,4 @@ export class SignUpComponent implements OnInit {
       this.router.navigate(['/home']);
     })
   }
-
-  
-
-  // submit(data: SignUp) {
-  //   console.log(data)
-  //   // if (!this.signUpForm.valid) return;
-
-  //   const { email, name, password } = data;
-  //   this.authService.signUp(name, email, password).catch(
-  //     this.toast.observe({
-  //       success: 'Congrats! You sign up!',
-  //       loading: 'Signin in',
-  //       error: ({ message }) => `${message}`
-  //     }))
-  //     .then(() => {
-  //       this.router.navigate(['/home']);
-  //     })
-  // }
 }
