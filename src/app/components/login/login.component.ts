@@ -4,14 +4,11 @@ import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
-// export interface Data {
-//   email: string
-//   password: string
-// }
-
-export class User {
-  constructor(public email: string,
-    public password: string) { }
+export class Login {
+  constructor(
+    public email: string,
+    public password: string
+  ) { }
 }
 
 @Component({
@@ -35,7 +32,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(data: User) {
+  submit(data: Login) {
     console.log('data that came out: ', data)
 
     // if (!this.loginForm.valid) {

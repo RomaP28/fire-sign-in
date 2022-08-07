@@ -6,6 +6,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyemailComponent } from './components/verifyemail/verifyemail.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo(['home']);
@@ -30,7 +32,17 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     ...canActivate(redirectToLogin)
-  }
+  },
+  {
+    path: 'verify-email',
+    component: VerifyemailComponent,
+    ...canActivate(redirectToHome)
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
+    ...canActivate(redirectToHome)
+  },
 ];
 
 @NgModule({

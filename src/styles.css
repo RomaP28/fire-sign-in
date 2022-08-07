@@ -25,8 +25,13 @@ body {
 }
 
 .center {
-  display: flex;
+ display: flex;
   justify-content: center;
+}
+
+.right{
+  display: flex;
+  justify-content: flex-end;
 }
 
 .margin-top {

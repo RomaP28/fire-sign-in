@@ -19,10 +19,13 @@ import { environment } from '../environments/environment';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { MatMenuModule } from '@angular/material/menu';
 import { LoginChildComponent } from './components/login-child/login-child.component';
+import { SignChildComponent } from './components/sign-child/sign-child.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyemailComponent } from './components/verifyemail/verifyemail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { LoginChildComponent } from './components/login-child/login-child.compon
     LoginComponent,
     LandingComponent,
     HomeComponent,
-    LoginChildComponent
+    LoginChildComponent,
+    SignChildComponent,
+    ForgotPasswordComponent,
+    VerifyemailComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +52,7 @@ import { LoginChildComponent } from './components/login-child/login-child.compon
     MatMenuModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
+    provideFirestore(()=> getFirestore()),
     HotToastModule.forRoot(),
     FormsModule
   ],
