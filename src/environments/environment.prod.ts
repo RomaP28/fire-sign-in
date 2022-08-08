@@ -6,6 +6,7 @@ export const environment = {
     apiKey: 'AIzaSyCRN0IiPtJlTi6WR0dXB8Z3RspGyE5OBKQ',
     authDomain: 'ng-sign-in.firebaseapp.com',
     messagingSenderId: '217350660173',
+    measurementId: "G-4GWQKC0H2B",
   },
   production: true
 };
