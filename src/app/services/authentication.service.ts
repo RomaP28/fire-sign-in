@@ -20,7 +20,7 @@ import {
   updateDoc,
 } from '@angular/fire/firestore';
 import { User } from '../components/sign-up/sign-up.component';
-import { HotToastModule, HotToastService } from '@ngneat/hot-toast';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,7 @@ export class AuthenticationService {
      private router: Router, 
      private firestore: Firestore,
      private toast: HotToastService) { }
+
   login(username: string, password: string) {
     return from(signInWithEmailAndPassword(this.auth, username, password))
   }

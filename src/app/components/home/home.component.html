@@ -2,13 +2,9 @@
 
 <ul class="userlist">
   <li *ngFor="let user of users">
-    <mat-card class="card">
-      <mat-card-header>
-        <mat-card-title>{{user.name}} {{user.lastname}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          {{user.email}}
-        </mat-card-content>
+    <mat-card class="card text-center">
+        <h2 class="">{{user.name}} {{user.lastname}}</h2>
+        <p>{{user.email}}</p>
     </mat-card>
   </li>
 </ul>
