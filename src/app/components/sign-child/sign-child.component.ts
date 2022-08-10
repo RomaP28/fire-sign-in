@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Output } from '@angular/core';
-import { User } from 'src/app/components/sign-up/sign-up.component';
+import { User } from 'src/app/app.component';
 
 
 @Component({

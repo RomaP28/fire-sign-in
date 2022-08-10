@@ -9,7 +9,6 @@ import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angula
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyemailComponent } from './components/verifyemail/verifyemail.component';
 
-
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo(['home']);
 
@@ -23,6 +22,7 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     ...canActivate(redirectToHome)
+
   },
   {
     path: 'sign-up',

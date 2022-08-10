@@ -9,8 +9,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor(private auth: AuthenticationService, 
-  private router: Router) { }
+  constructor(private auth: AuthenticationService,
+    private router: Router) { }
 
   email: string = ''
 
@@ -18,7 +18,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   }
 
-  forgotPassword(){
+  forgotPassword() {
     if (this.email.trim() === '') return
     this.auth.forgotPassword(this.email)
     this.email = ''

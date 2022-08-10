@@ -2,16 +2,9 @@ import { Component, OnInit } from '@angular/core';
 // import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { User } from 'src/app/app.component';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
-export class User {
-  constructor(
-    public name: string,
-    public lastName: string,
-    public email: string,
-    public password: string
-  ) { }
-}
 
 @Component({
   selector: 'app-sign-up',
@@ -37,6 +30,7 @@ export class SignUpComponent implements OnInit {
         error: ({ message }) => `${message}`
       })
     ).subscribe(() => {
+      localStorage.setItem('event', 'signup')
       this.router.navigate(['/home']);
     })
   }
